@@ -1,26 +1,277 @@
 [
   {
     "id": 1,
-    "question": "Quanto e 2 + 2?",
-    "answers": ["3", "4", "5", "6"],
+    "question": "Antes de projetar do zero o sistema operacional da FCTarc13, que conhecimento e essencial reunir?",
+    "answers": [
+      "Apenas a linguagem de programacao escolhida pela equipe.",
+      "As caracteristicas do hardware e as necessidades dos programas de usuario.",
+      "Somente o tamanho do disco rigido.",
+      "A aparencia visual desejada para a tela de inicializacao."
+    ],
     "correct_answer": 1
   },
   {
     "id": 2,
-    "question": "Qual e a capital do Brasil?",
-    "answers": ["Salvador", "Brasilia", "Recife", "Curitiba"],
-    "correct_answer": 1
-  },
-  {
-    "id": 3,
-    "question": "Qual destes numeros e impar?",
-    "answers": ["3", "6", "8", "10"],
+    "question": "Quais quatro recursos de hardware principais devem ser considerados ao estudar um sistema computacional?",
+    "answers": [
+      "Processador, memoria principal, armazenamento secundario e dispositivos de entrada e saida.",
+      "Monitor, teclado, gabinete e sistema operacional.",
+      "Aplicativos, arquivos, pastas e usuarios.",
+      "Processador, navegador, editor de texto e impressora."
+    ],
     "correct_answer": 0
   },
   {
+    "id": 3,
+    "question": "Um braco robotico recebe comandos do computador e realiza movimentos. Como ele e classificado pela funcao que exerce?",
+    "answers": [
+      "Dispositivo de entrada, pois envia movimentos para o processador.",
+      "Memoria secundaria, pois armazena os comandos.",
+      "Dispositivo de saida, pois executa fisicamente os comandos recebidos.",
+      "Memoria principal, pois mantem o sistema operacional ativo."
+    ],
+    "correct_answer": 2
+  },
+  {
     "id": 4,
-    "question": "Quanto e 5 x 3?",
-    "answers": ["10", "12", "15", "20"],
+    "question": "Qual justificativa tecnica explica a necessidade de desenvolver um sistema operacional para a FCTarc13?",
+    "answers": [
+      "O sistema operacional substitui todos os componentes de hardware.",
+      "Cada programa de usuario precisa controlar diretamente todos os circuitos.",
+      "O sistema operacional serve apenas para exibir uma interface grafica.",
+      "Ele gerencia os recursos de hardware e oferece servicos para os programas de usuario."
+    ],
+    "correct_answer": 3
+  },
+  {
+    "id": 5,
+    "question": "Quais sao as duas funcoes classicas de um sistema operacional?",
+    "answers": [
+      "Compilar programas e fabricar dispositivos.",
+      "Gerenciar recursos do computador e oferecer uma maquina estendida, abstraindo o hardware.",
+      "Armazenar arquivos permanentemente e fornecer energia ao processador.",
+      "Criar programas de usuario e substituir a memoria RAM."
+    ],
+    "correct_answer": 1
+  },
+  {
+    "id": 6,
+    "question": "Qual deve ser a tarefa inicial da equipe que vai desenvolver o sistema operacional da FCTarc13?",
+    "answers": [
+      "Inventariar o hardware e levantar os requisitos dos programas antes de definir o projeto.",
+      "Comecar a escrever o escalonador sem conhecer o processador.",
+      "Escolher cores e fontes para a interface.",
+      "Instalar aplicativos de usuario antes de existir um sistema operacional."
+    ],
+    "correct_answer": 0
+  },
+  {
+    "id": 7,
+    "question": "Nesta divisao didatica do nucleo em quatro areas, quais sao seus principais componentes?",
+    "answers": [
+      "Interface grafica, navegador, editor de texto e terminal.",
+      "Compilador, planilha, banco de dados e navegador.",
+      "Gerenciamento de processos, memoria, dispositivos de entrada e saida e arquivos.",
+      "Monitor, teclado, mouse e impressora."
+    ],
+    "correct_answer": 2
+  },
+  {
+    "id": 8,
+    "question": "Quando o computador esta desligado, onde o sistema operacional e os programas permanecem guardados?",
+    "answers": [
+      "Nos registradores do processador.",
+      "Na memoria cache, que nao perde os dados sem energia.",
+      "Na memoria RAM, que preserva tudo ao desligar.",
+      "No armazenamento secundario, como um SSD ou disco rigido."
+    ],
+    "correct_answer": 3
+  },
+  {
+    "id": 9,
+    "question": "Por que o sistema operacional e os programas de usuario precisam ser armazenados em memoria secundaria?",
+    "answers": [
+      "Para que seus dados persistam quando o computador e desligado e possam ser carregados depois.",
+      "Para que o processador deixe de precisar executar instrucoes.",
+      "Porque a memoria secundaria e mais rapida que os registradores.",
+      "Para impedir que o sistema operacional use memoria RAM."
+    ],
+    "correct_answer": 0
+  },
+  {
+    "id": 10,
+    "question": "Logo apos ligar o computador, quem inicia a verificacao e a inicializacao do hardware, e onde esse codigo fica armazenado?",
+    "answers": [
+      "Um programa de usuario, guardado na memoria RAM.",
+      "O firmware BIOS/UEFI, guardado em memoria nao volatil da placa-mae.",
+      "O sistema de arquivos, guardado nos registradores do processador.",
+      "O escalonador, guardado na memoria cache."
+    ],
+    "correct_answer": 1
+  },
+  {
+    "id": 11,
+    "question": "No fluxo classico de inicializacao, quais sao as duas ultimas tarefas do BIOS antes de encerrar sua execucao?",
+    "answers": [
+      "Apagar a memoria secundaria e iniciar todos os programas de usuario.",
+      "Executar cada aplicativo e escolher qual sera encerrado primeiro.",
+      "Carregar o setor de inicializacao do dispositivo escolhido para a memoria e transferir o controle para esse codigo.",
+      "Criar uma particao nova na RAM para cada arquivo do usuario."
+    ],
+    "correct_answer": 2
+  },
+  {
+    "id": 12,
+    "question": "Qual situacao cotidiana e uma boa analogia para escalonamento?",
+    "answers": [
+      "Uma fila de atendimento em que alguem define quem sera atendido em seguida.",
+      "Uma gaveta em que objetos ficam guardados sem ordem.",
+      "Uma lampada que acende quando recebe energia.",
+      "Uma folha em branco antes de ser escrita."
+    ],
+    "correct_answer": 0
+  },
+  {
+    "id": 13,
+    "question": "Qual e a relacao entre o sistema operacional, os programas de usuario e o escalonamento?",
+    "answers": [
+      "Cada programa escalona o sistema operacional para controlar o hardware.",
+      "O escalonamento impede que programas de usuario sejam executados.",
+      "O sistema operacional usa o escalonador para decidir qual processo recebe tempo de CPU.",
+      "O escalonador escolhe quais arquivos devem ser apagados."
+    ],
+    "correct_answer": 2
+  },
+  {
+    "id": 14,
+    "question": "Um sistema alterna o uso da CPU entre varios programas, dando a impressao de execucao simultanea. Como ele e classificado?",
+    "answers": [
+      "Sistema de programa unico, sem preempcao.",
+      "Sistema multiprogramado ou multitarefa.",
+      "Sistema exclusivamente de tempo real.",
+      "Sistema sem gerenciamento de processos."
+    ],
+    "correct_answer": 1
+  },
+  {
+    "id": 15,
+    "question": "Qual exemplo cotidiano ajuda a explicar o conceito de processo?",
+    "answers": [
+      "Uma receita impressa, sem ninguem preparando o prato.",
+      "Uma caixa fechada guardada em um armario.",
+      "O ato de preparar uma receita: uma atividade em andamento, com etapas e estado atual.",
+      "Uma lista de compras que nunca e utilizada."
+    ],
+    "correct_answer": 2
+  },
+  {
+    "id": 16,
+    "question": "Qual e a relacao entre sistema operacional, programa de usuario e processo?",
+    "answers": [
+      "Um processo e uma instancia de um programa em execucao, que o sistema operacional gerencia.",
+      "O sistema operacional e um processo criado por cada arquivo de texto.",
+      "Um programa so pode existir depois que o processo termina.",
+      "Processo e outro nome para o disco rigido."
+    ],
+    "correct_answer": 0
+  },
+  {
+    "id": 17,
+    "question": "Durante a operacao da FCTarc13, qual e a relacao da RAM com o sistema operacional e os programas de usuario?",
+    "answers": [
+      "A RAM guarda apenas arquivos que nunca estao sendo usados.",
+      "A RAM contem partes do sistema operacional e dos programas que estao em execucao.",
+      "A RAM substitui permanentemente o armazenamento secundario.",
+      "A RAM e usada somente antes de o computador ser ligado."
+    ],
+    "correct_answer": 1
+  },
+  {
+    "id": 18,
+    "question": "Por que carregar o sistema operacional e os programas ativos na RAM?",
+    "answers": [
+      "Porque a RAM conserva os dados sem energia por mais tempo que um SSD.",
+      "Para impedir que a CPU acesse instrucoes e dados.",
+      "Porque a CPU pode acessar rapidamente as instrucoes e os dados em uso na RAM.",
+      "Para transformar todos os programas em dispositivos de entrada."
+    ],
+    "correct_answer": 2
+  },
+  {
+    "id": 19,
+    "question": "Qual organizacao basica da RAM permite manter o sistema operacional e os programas de usuario durante a execucao?",
+    "answers": [
+      "Reservar uma area para o sistema operacional e gerenciar areas de memoria para os processos de usuario.",
+      "Armazenar todos os dados em um unico endereco compartilhado sem protecao.",
+      "Usar a RAM apenas para o sistema operacional e executar programas direto do teclado.",
+      "Criar uma copia permanente de cada programa nos registradores."
+    ],
+    "correct_answer": 0
+  },
+  {
+    "id": 20,
+    "question": "Como lidar com o fato de que o sistema operacional e os programas podem precisar de quantidades diferentes de RAM?",
+    "answers": [
+      "Criar uma particao fixa igual para todos, mesmo que nao caiba ou sobre muito espaco.",
+      "Deixar todos os programas ocuparem a mesma regiao sem controle.",
+      "Impedir que programas usem memoria depois da inicializacao.",
+      "Alocar memoria de forma dinamica conforme a necessidade, protegendo e liberando as areas."
+    ],
+    "correct_answer": 3
+  },
+  {
+    "id": 21,
+    "question": "Quando e como a RAM deve ser dividida entre o sistema operacional e os programas de usuario?",
+    "answers": [
+      "Somente depois que todos os programas forem encerrados.",
+      "Na inicializacao, reservar memoria para o nucleo e alocar/liberar memoria para processos conforme eles iniciam e terminam.",
+      "Antes de existir hardware, de forma manual e imutavel.",
+      "A cada instrucao, apagando toda a memoria anterior."
+    ],
+    "correct_answer": 1
+  },
+  {
+    "id": 22,
+    "question": "Alem da RAM, que outro armazenamento o sistema operacional organiza e controla para guardar informacoes?",
+    "answers": [
+      "Os registradores, organizados pelo teclado.",
+      "A memoria cache, organizada como uma fila de usuarios.",
+      "O armazenamento secundario, organizado pelo sistema de arquivos em arquivos e blocos.",
+      "A memoria ROM, repartida a cada clique do mouse."
+    ],
+    "correct_answer": 2
+  },
+  {
+    "id": 23,
+    "question": "Um arquivo ocupa blocos consecutivos, e o sistema guarda o endereco do primeiro bloco e calcula os demais pela posicao. Qual e o metodo de alocacao?",
+    "answers": [
+      "Alocacao contigua.",
+      "Alocacao encadeada.",
+      "Alocacao indexada.",
+      "Alocacao por escalonamento."
+    ],
+    "correct_answer": 0
+  },
+  {
+    "id": 24,
+    "question": "Em um metodo, cada bloco de um arquivo aponta para o proximo, que pode estar em qualquer lugar do disco. Qual e esse metodo?",
+    "answers": [
+      "Alocacao contigua.",
+      "Alocacao encadeada.",
+      "Alocacao indexada por niveis.",
+      "Particionamento dinamico da RAM."
+    ],
+    "correct_answer": 1
+  },
+  {
+    "id": 25,
+    "question": "Um sistema guarda em tabelas os enderecos dos blocos de cada arquivo, possivelmente em varios niveis. Qual e o metodo de alocacao?",
+    "answers": [
+      "Alocacao contigua.",
+      "Alocacao encadeada, com ponteiro no final de cada bloco.",
+      "Alocacao indexada.",
+      "Escalonamento por prioridade."
+    ],
     "correct_answer": 2
   }
 ]
