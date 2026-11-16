@@ -31,6 +31,7 @@ var player_hp_bar: ProgressBar
 var player_hp_text: Label
 var question_text: Label
 var status_text: Label
+var answers_grid: GridContainer
 var answer_buttons: Array[Button] = []
 
 
@@ -39,6 +40,8 @@ func _ready() -> void:
 	player_hp = player_max_hp
 	enemy_hp = enemy_max_hp
 	_build_interface()
+	get_viewport().size_changed.connect(_update_answer_columns)
+	_update_answer_columns()
 	_update_health_bars()
 
 	if not _load_questions():
@@ -60,14 +63,14 @@ func _build_interface() -> void:
 
 	var margins := MarginContainer.new()
 	margins.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	margins.add_theme_constant_override("margin_left", 32)
-	margins.add_theme_constant_override("margin_top", 24)
-	margins.add_theme_constant_override("margin_right", 32)
-	margins.add_theme_constant_override("margin_bottom", 24)
+	margins.add_theme_constant_override("margin_left", 20)
+	margins.add_theme_constant_override("margin_top", 16)
+	margins.add_theme_constant_override("margin_right", 20)
+	margins.add_theme_constant_override("margin_bottom", 16)
 	add_child(margins)
 
 	var layout := VBoxContainer.new()
-	layout.add_theme_constant_override("separation", 16)
+	layout.add_theme_constant_override("separation", 10)
 	margins.add_child(layout)
 
 	var enemy_heading := _make_label("INIMIGO", 16, true)
@@ -103,7 +106,7 @@ func _build_interface() -> void:
 	layout.add_child(question_panel)
 
 	var question_content := VBoxContainer.new()
-	question_content.add_theme_constant_override("separation", 14)
+	question_content.add_theme_constant_override("separation", 10)
 	question_panel.add_child(question_content)
 
 	var question_heading := _make_label("PERGUNTA", 16, true)
@@ -112,19 +115,21 @@ func _build_interface() -> void:
 
 	question_text = _make_label("", 21, true)
 	question_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	question_text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	question_content.add_child(question_text)
 
-	var answers_grid := GridContainer.new()
-	answers_grid.columns = 2
+	answers_grid = GridContainer.new()
 	answers_grid.add_theme_constant_override("h_separation", 10)
-	answers_grid.add_theme_constant_override("v_separation", 10)
+	answers_grid.add_theme_constant_override("v_separation", 8)
+	answers_grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	question_content.add_child(answers_grid)
 
 	for answer_index in range(4):
 		var answer_button := Button.new()
-		answer_button.custom_minimum_size = Vector2(0, 54)
+		answer_button.custom_minimum_size = Vector2(0, 58)
 		answer_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		answer_button.add_theme_font_size_override("font_size", 17)
+		answer_button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		answer_button.add_theme_font_size_override("font_size", 15)
 		answer_button.add_theme_stylebox_override("normal", _make_button_style(Color("#34433d")))
 		answer_button.add_theme_stylebox_override("hover", _make_button_style(Color("#46584f")))
 		answer_button.add_theme_stylebox_override("disabled", _make_button_style(Color("#27332f")))
@@ -134,6 +139,7 @@ func _build_interface() -> void:
 
 	status_text = _make_label("", 16, true)
 	status_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	status_text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	layout.add_child(status_text)
 
 	var footer := HBoxContainer.new()
@@ -151,6 +157,11 @@ func _build_interface() -> void:
 	player_hp_bar = _make_progress_bar(Color("#64b985"))
 	player_hp_bar.custom_minimum_size = Vector2(160, 18)
 	footer.add_child(player_hp_bar)
+
+
+func _update_answer_columns() -> void:
+	if is_instance_valid(answers_grid):
+		answers_grid.columns = 1 if get_viewport_rect().size.x < 720 else 2
 
 
 func _load_questions() -> bool:
