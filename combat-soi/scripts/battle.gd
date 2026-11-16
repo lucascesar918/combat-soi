@@ -43,7 +43,7 @@ func _ready() -> void:
 
 	if not _load_questions():
 		battle_state = BattleState.RESOLVING_PLAYER_ATTACK
-		status_text.text = "Nao foi possivel carregar data/questions.json."
+		status_text.text = "Falha ao carregar perguntas. Consulte o erro no debugger."
 		return
 
 	_show_next_question()
@@ -154,11 +154,18 @@ func _build_interface() -> void:
 
 
 func _load_questions() -> bool:
-	if not FileAccess.file_exists(QUESTIONS_PATH):
-		push_error("Arquivo de perguntas nao encontrado: " + QUESTIONS_PATH)
+	var file := FileAccess.open(QUESTIONS_PATH, FileAccess.READ)
+	if file == null:
+		push_error("Falha ao abrir %s (codigo %d)." % [QUESTIONS_PATH, FileAccess.get_open_error()])
 		return false
 
-	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(QUESTIONS_PATH))
+	var json := JSON.new()
+	var parse_result := json.parse(file.get_as_text())
+	if parse_result != OK:
+		push_error("JSON invalido em %s, linha %d: %s" % [QUESTIONS_PATH, json.get_error_line(), json.get_error_message()])
+		return false
+
+	var parsed: Variant = json.data
 	if typeof(parsed) != TYPE_ARRAY or parsed.is_empty():
 		push_error("O arquivo de perguntas deve conter uma lista JSON nao vazia.")
 		return false
@@ -176,8 +183,13 @@ func _load_questions() -> bool:
 		if item["answers"].size() != 4:
 			push_error("Cada pergunta deve ter exatamente quatro alternativas.")
 			return false
-		if typeof(item["correct_answer"]) != TYPE_INT or item["correct_answer"] < 0 or item["correct_answer"] > 3:
-			push_error("A resposta correta deve ser o indice de 0 a 3.")
+		var correct_answer_type := typeof(item["correct_answer"])
+		if correct_answer_type != TYPE_INT and correct_answer_type != TYPE_FLOAT:
+			push_error("A resposta correta deve ser um numero inteiro de 0 a 3.")
+			return false
+		var correct_answer := int(item["correct_answer"])
+		if float(item["correct_answer"]) != float(correct_answer) or correct_answer < 0 or correct_answer > 3:
+			push_error("A resposta correta deve ser um numero inteiro de 0 a 3.")
 			return false
 		for answer in item["answers"]:
 			if typeof(answer) != TYPE_STRING:
